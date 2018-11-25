@@ -17,9 +17,16 @@ function parseChartData(data){
     datasets: [
       {
         label: '',
-        backgroundColor: '#f87979',
+        backgroundColor: '#ffd3d3',
+        borderColor: '#f87979',
         data: []
-      }
+      },
+      // {
+      //   label: 'Price 2',
+      //   backgroundColor: '#42f483',
+      //   borderColor: '#adffcb',
+      //   data: [400, 400, 500, 100, 300, 400, 500]
+      // }
     ]
   }
 

@@ -1,17 +1,28 @@
 <template>
   <div class="home">
     
-    <h1>{{$store.state.current_company_name }}</h1> <h3> {{$store.state.company_symbol}} </h3>
-    <line-graph :height="100" :chartData="$store.state.stock_data" class="graph"/>
+    <div id="company-name"> {{$store.state.current_company_name }} </div>
+    <div id="company-symbol"> {{$store.state.company_symbol}} </div>
 
-    Company Name: <input type="text" @keyup.enter="change_name" v-model="company_name">
+    <line-graph :height="100" :chartData="$store.state.stock_data" :options="options" class="graph"/>
+
+    Company Symbol: <input type="text" @keyup.enter="change_name" v-model="company_name">
   </div>
 </template>
 
 <style scoped>
 
   .graph {
-    
+    padding-top: 25px;
+  }
+
+  #company-name {
+    font-size: 40px;
+    font-weight: 600;
+  }
+
+  #company-symbol {
+    font-size: 20px;
   }
 
 </style>
@@ -22,12 +33,15 @@
 <script>
 // @ is an alias to /src
 import LineGraph from '@/components/Graphs/LineGraph.vue'
+import GraphTemplates from '../components/Graphs/GraphTemplates.js'
 
 export default {
   name: 'home',
   data() {
     return {
-      company_name: ''
+      company_name: '',
+      options: GraphTemplates.CLEAN
+
     }
   },
   components: {

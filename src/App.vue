@@ -17,4 +17,8 @@
   margin-top: 20px;
 
 }
+
+body {
+  margin: 0 10%;
+}
 </style>
