@@ -5,8 +5,11 @@
 */
 const CLEAN = {
                 
-  responsive: true, maintainAspectRatio: true,
+  responsive: true, maintainAspectRatio: true, spanGaps: true, 
 
+  animation: {
+    duration: 600,
+  },
   legend: {
       display: false
   },

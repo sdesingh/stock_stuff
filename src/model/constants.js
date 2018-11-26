@@ -5,14 +5,8 @@
 */
 const _STOCK_BASE_URL = 'https://api.iextrading.com/1.0/' // Stock Data
 
-const _TIMEFRAME = {
-  five_years: '5Y',
-  two_years: '2Y',
-  one_year: '1Y',
-  six_months: '6m',
-  one_month: '1m',
-  today: '1d'
-}
+const _TIMEFRAME = ['5Y','2Y','1Y','6m','1m','1d']
+  
 
 /**
  * Get the URL for retrieving data to create a chart given a timeframe.

@@ -7,16 +7,20 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    company_symbol: 'Please Enter a Company.',
+    company_symbol: '',
     current_company_name: 'Get stock data!',
-    stock_data: {}
+    stock_data: {},
+    selected_time_frame: '1Y',
+    timeframes: API.CONSTANTS._TIMEFRAME
   },
-  getters: {
-
-  },
+  getters: {},
   mutations: {
     change_company (state, name){
       state.company_symbol = name
+    },
+    change_timeframe(state, index){
+      state.selected_time_frame = index
+      if(state.company_symbol.length > 0) this.dispatch('update_data')
     },
     new_data (state, data) {
       state.current_company_name = data[0].companyName
@@ -35,8 +39,9 @@ export default new Vuex.Store({
     update_data (context){
 
       let company = context.state.company_symbol
+      let timeframe = context.state.selected_time_frame
 
-      axios.all([API.dataToday(company), API.chartData(company, API.CONSTANTS._TIMEFRAME.one_month)])
+      axios.all([API.dataToday(company), API.chartData(company, timeframe)])
 
         // Called when both requests are completed.
         .then(axios.spread((summary, chart_data) => {

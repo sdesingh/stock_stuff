@@ -2,7 +2,9 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      Analyze |
+      <router-link to="/about">About</router-link> |
+
     </div>
     <router-view/>
   </div>
@@ -19,6 +21,6 @@
 }
 
 body {
-  margin: 0 10%;
+  margin: 0 5%;
 }
 </style>
