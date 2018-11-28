@@ -46,7 +46,7 @@ const CLEAN = {
 }
 
 const REGULAR = {
-  responsive: true, maintainAspectRatio: true,
+  responsive: true, maintainAspectRatio: true, spanGaps: true,
 
   legend: {
       display: true
@@ -56,9 +56,9 @@ const REGULAR = {
       yAxes: [{
           scaleType: "linear",
           beginAtZero: true,
-          display: false,
+          display: true,
           ticks: {
-              display: false
+              display: true
           },
           gridLines: {
               display:false
@@ -67,9 +67,9 @@ const REGULAR = {
       xAxes: [{
           beginAtZero: true,
           scaleType: "linear",
-          display: false,
+          display: true,
           ticks: {
-              display: false
+              display: true
           },
           gridLines: {
               display:false

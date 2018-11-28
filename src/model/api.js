@@ -12,6 +12,7 @@ function chartData(company, timeframe){
 
 function parseChartData(data){
 
+  // Creating the stock_data object to be returned.
   var stock_data = {
     labels: [],
     datasets: [
@@ -24,6 +25,7 @@ function parseChartData(data){
     ]
   }
 
+  // Set the key for the points on the graph.
   stock_data.datasets[0].label = 'Price'
 
   data.forEach(item => {
@@ -35,10 +37,26 @@ function parseChartData(data){
 
 }
 
+/**
+ * 
+ * @param {*} data JSON Object containing the stock data for the company.
+ */
+function parseSummaryData(data){
+  return {
+    currentPrice: data.latestPrice,
+    highPrice: data.high,
+    lowPrice: data.low,
+    change: data.change,
+    changePercent: data.changePercent
+  }
+
+}
+
 export default {
   chartData,
   dataToday,
   parseChartData,
+  parseSummaryData,
   CONSTANTS
 }
 

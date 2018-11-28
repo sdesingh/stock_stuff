@@ -9,6 +9,7 @@ export default new Vuex.Store({
   state: {
     company_symbol: '',
     current_company_name: 'Get stock data!',
+    company_summary_data: {},
     stock_data: {},
     selected_time_frame: '1Y',
     timeframes: API.CONSTANTS._TIMEFRAME
@@ -26,6 +27,7 @@ export default new Vuex.Store({
       state.current_company_name = data[0].companyName
       state.company_symbol = data[0].symbol
       state.retrieved = true
+      state.company_summary_data = API.parseSummaryData(data[0])
       state.stock_data = API.parseChartData(data[1])  
     },
     error_data (state, error) {

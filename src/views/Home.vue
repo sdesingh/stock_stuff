@@ -2,12 +2,11 @@
   <div class="home">
     
     <div id="company-name"> {{$store.state.current_company_name }} </div>
-    <input type="text" @keyup.enter="change_name" v-model="company_name">
-    
+    <input id="enter-company" type="text" @keyup.enter="change_name" v-model="company_name">
     <drop-down id="select-time" :options="$store.state.timeframes"/>
+    <company-summary v-if="$store.state.retrieved" :data="$store.state.company_summary_data"/>
+      
     <line-graph :height="90" :chartData="$store.state.stock_data" :options="options" class="graph"/>
-
-    <button>Analyze</button>
 
   </div>
 </template>
@@ -39,6 +38,7 @@
 import LineGraph from '@/components/Graphs/LineGraph.vue'
 import GraphTemplates from '../components/Graphs/GraphTemplates.js'
 import DropDown from '../components/Dropdown.vue'
+import CompanySummary from '../components/Home/CompanySummary.vue'
 
 export default {
   name: 'home',
@@ -51,7 +51,8 @@ export default {
   },
   components: {
     LineGraph,
-    DropDown
+    DropDown,
+    CompanySummary
   },
   methods: {
     change_name(){
